@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true,
+        "strictFunctionTypes": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}
