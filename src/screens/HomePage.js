@@ -9,10 +9,28 @@ import {
 
 const HomePage = () => {
   return (
-    <View>
-      <Text>Yunus Emre Ak gün</Text>
+    <View style={styles.container}>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+      <Text>Home Page Screen</Text>
+  
     </View>
   );
 };
 
+const styles=StyleSheet.create(
+  {
+    container:{
+      flex:1,
+      alignSelf:'center'
+    }
+  }
+)
 export default HomePage;
