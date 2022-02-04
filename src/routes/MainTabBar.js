@@ -18,7 +18,9 @@ const Stack = createStackNavigator();
 
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="HomeScreen" headerMode="none">
+    <Stack.Navigator
+      initialRouteName="HomeScreen"
+      screenOptions={{headerShown: false}}>
       <Stack.Screen name="HomeScreen" component={HomeScreen}></Stack.Screen>
       <Stack.Screen
         name="DetailsScreen"
@@ -32,18 +34,16 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
- 
       screenOptions={({route}) => ({
-        tabBarStyle:[
-            {
-              height:80,
-              alignItems:'center',
-              justifyContent:'center',
-              
-            },
-            null
-          ]
-        ,
+        headerShown: false,
+        tabBarStyle: [
+          {
+            height: 80,
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+          null,
+        ],
         tabBarIcon: ({focused}) => {
           const icons = {
             Schedule: 'calendar-alt',
@@ -54,16 +54,34 @@ const BottomTabNavigator = () => {
           return (
             <FontAwesome5Icons
               name={icons[route.name]}
-              color={
-                focused ? COLORS.accent : COLORS.black
-              }
-              size={15}
-              ></FontAwesome5Icons>
+              color={focused ? COLORS.accent : COLORS.black}
+              style={{
+                fontSize: 19,
+                opacity: focused ? 1 : 0.6,
+              }}></FontAwesome5Icons>
+          );
+        },
+        tabBarLabel: ({focused}) => {
+          const labels = {
+            Schedule: 'Today',
+            HomeStack: 'All Exercises',
+            Settings: 'Settings',
+          };
+          return (
+            <Text
+              style={{
+                color: focused ? COLORS.accent : COLORS.black,
+                marginBottom: 4,
+                opacity: focused ? 1 : 0.6,
+                fontWeight: 'bold',
+              }}>
+              {labels[route.name]}
+            </Text>
           );
         },
       })}>
-      <Tab.Screen name="Schedule" component={ScheduleScreen} />
       <Tab.Screen name="HomeStack" component={StackNavigator} />
+      <Tab.Screen name="Schedule" component={ScheduleScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
