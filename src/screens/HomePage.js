@@ -6,10 +6,11 @@ import {
   TouchableOpacity,
   StatusBar,
   Image,
+  TextInput,
   Text,
   View,
 } from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+
 
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import {COLORS, SIZES} from '../constants';
@@ -110,47 +111,83 @@ const HomePage = ({navigation}) => {
           <View style={styles.outerContainer}>
             <View
               style={{
-                right:6,
-                top:2,
-                width:'50%',
-                height:5,
-                backgroundColor:COLORS.white,
-                borderRadius:40,
-              }}
-            ></View>
+                right: 6,
+                top: 2,
+                width: '50%',
+                height: 5,
+                backgroundColor: COLORS.white,
+                borderRadius: 40,
+              }}></View>
             <View
-            style={{
-                right:-4,
-                top:3,
-                width:'50%', 
-                marginVertical:5,
-                height:5,
-                backgroundColor:COLORS.white,
-                borderRadius:40,
+              style={{
+                right: -4,
+                top: 3,
+                width: '50%',
+                marginVertical: 5,
+                height: 5,
+                backgroundColor: COLORS.white,
+                borderRadius: 40,
               }}></View>
           </View>
         </TouchableOpacity>
         <Text style={styles.middleText}>Welcome The App Eric</Text>
-      </View>
-      <View style={styles.container}>
-        <FlatList
-          data={Excersizes}
-          keyExtractor={item => item.title}
+
+        <View
           style={{
-            flex: 1,
-            paddingHorizontal: 20,
-            paddingVertical: 4,
-            marginTop: -60,
-          }}
-          scrollEnabled={true}
-          contentContainerStyle={{
+            flexDirection: 'row',
             alignItems: 'center',
-          }}
-          showsVerticalScrollIndicator={false}
-          numColumns={2}
-          renderItem={({item}) => <Item excersize={item} />}
-        />
+            justifyContent: 'flex-start',
+            height: 50,
+            borderRadius: 30,
+            backgroundColor: COLORS.white,
+            marginVertical: 40,
+          }}>
+          <FontAwesome5Icons
+            name="search"
+            size={22}
+            style={{marginHorizontal: 20}}
+          />
+          <TextInput placeholder="Search" style={{flex: 1}} />
+        </View>
+        <View
+          style={{
+            width: 60,
+            height: 60,
+            borderRadius: 30,
+            backgroundColor: COLORS.accent + '55',
+            position: 'absolute',
+            right: -30,
+            bottom: 50,
+          }}></View>
+        <View
+          style={{
+            width: 60,
+            height: 60,
+            borderRadius: 30,
+            backgroundColor: COLORS.white + '65',
+            position: 'absolute',
+            left: 30,
+            bottom: 220,
+          }}></View>
       </View>
+
+      <FlatList
+        data={Excersizes}
+        keyExtractor={item => item.title}
+        style={{
+          flex: 1,
+          paddingHorizontal: 20,
+          paddingVertical: 4,
+          marginTop: -60,
+        }}
+        scrollEnabled={true}
+        contentContainerStyle={{
+          alignItems: 'center',
+        }}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        renderItem={({item}) => <Item excersize={item} />}
+      />
     </SafeAreaView>
   );
 };
@@ -189,7 +226,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 0.4 * SIZES.height,
     padding: 30,
-    backgroundColor: COLORS.accent + '20',
+    backgroundColor: COLORS.accent + '30',
     position: 'relative',
   },
   innerContainer: {

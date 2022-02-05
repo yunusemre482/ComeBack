@@ -12,7 +12,6 @@ import {
 
 import {COLORS, SIZES} from '../constants';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
-import {Icon} from 'react-native-vector-icons/Icon';
 
 const Stack = createStackNavigator();
 
