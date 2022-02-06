@@ -76,6 +76,7 @@ const HomePage = ({navigation}) => {
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.itemStyle}
+    
         onPress={() =>
           navigation.navigate('DetailsScreen', {exercise: excersize})
         }>
@@ -87,11 +88,12 @@ const HomePage = ({navigation}) => {
     );
   };
   return (
-    <SafeAreaView style={{flex: 1, position: 'relative'}}>
+    <View style={{flex: 1, position: 'relative'}}>
       <StatusBar
         backgroundColor={COLORS.accent + '30'}
         barStyle="dark-content"
         animated={true}
+        translucent = {true}
       />
       <View style={styles.outerView}>
         <Image
@@ -188,7 +190,7 @@ const HomePage = ({navigation}) => {
         numColumns={2}
         renderItem={({item}) => <Item excersize={item} />}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -225,6 +227,7 @@ const styles = StyleSheet.create({
   outerView: {
     width: '100%',
     height: 0.4 * SIZES.height,
+    paddingTop:60,
     padding: 30,
     backgroundColor: COLORS.accent + '30',
     position: 'relative',

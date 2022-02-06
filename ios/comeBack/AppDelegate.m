@@ -22,6 +22,9 @@ static void InitializeFlipper(UIApplication *application) {
   [client start];
 }
 #endif
+#if RCT_DEV
+#import <React/RCTDevLoadingView.h>
+#endif
 
 @implementation AppDelegate
 
@@ -47,6 +50,9 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  #if RCT_DEV
+  [[ReactNativeNavigation getBridge] moduleForClass:[RCTDevLoadingView class]];
+  #endif
   return YES;
 }
 
